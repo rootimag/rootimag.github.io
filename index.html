@@ -1,205 +1,521 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-  
-  
-  <title>Hexo</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://example.com/index.html">
-<meta property="og:site_name" content="Hexo">
-<meta property="og:locale" content="en_US">
-<meta property="article:author" content="John Doe">
-<meta name="twitter:card" content="summary">
-  
-    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
-  
-  
-    <link rel="shortcut icon" href="/favicon.png">
-  
-  
-  
-<link rel="stylesheet" href="/css/style.css">
+<html lang=zh-CN data-theme="light">
+	
+<script src="/js/plugins/toggleTheme.js"></script>
 
-  
+	<script>
+		setTheme();
+	</script>
+	<head>
+		
+<title>主页 | Hexo-Theme-Quieter</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="shortcut icon" type="image/x-icon" href="/images/icon/favicon.ico">
+<link href="/css/plugins/print.css" media="print" rel="stylesheet" />
+
+<link rel="stylesheet" href="/css/index.css">
+
+
+    <meta name="keywords" content="Hexo theme, blog">
+    <meta name="description" content="🍓A simple and fully functional Hexo theme, improved based on Hexo theme quiet.">
+
+
+
+<script src="/js/plugins/jquery.min.js"></script>
+
+
+<script src="/js/plugins/hljs.min.js"></script>
+
+
+<script src="/js/plugins/init.js"></script>
+
+
+<script src="/js/plugins/hide.js"></script>
+
+
+<script src="/js/plugins/tabs.js"></script>
+
+
+
     
-<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
 
-  
-  
-<meta name="generator" content="Hexo 7.3.0"></head>
 
-<body>
-  <div id="container">
-    <div id="wrap">
-      <header id="header">
-  <div id="banner"></div>
-  <div id="header-outer" class="outer">
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="/" id="logo">Hexo</a>
-      </h1>
-      
+
+
+
+
+
+    
+
+	<meta name="generator" content="Hexo 7.3.0"></head>
+
+	<body>
+		<header class="sticky-header">
+	<nav>
+		<div class="nav-left">
+			<a href="/" class="logo">
+				<img no-lazy src="/images/headers_icon/logo.webp" alt="Quieter">
+			</a>
+			<ul class="breadcrumb" id="breadcrumb"></ul>
+		</div>
+		<div class="nav-right">
+			<ul>
+				
+					<li>
+						<a href="/">
+						  主页
+						</a>
+					</li>
+				
+					<li>
+						<a href="/categories">
+						  类别
+						</a>
+					</li>
+				
+					<li>
+						<a href="/tags">
+						  标签
+						</a>
+					</li>
+				
+					<li>
+						<a href="/archives">
+						  归档
+						</a>
+					</li>
+				
+					<li>
+						<a href="/galleries">
+						  相册
+						</a>
+					</li>
+				
+					<li>
+						<a href="/links">
+						  链接
+						</a>
+					</li>
+				
+					<li>
+						<a href="/about">
+						  关于
+						</a>
+					</li>
+								  
+			</ul>
+		</div>
+		<div class="nav-right-close">
+			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+				<path fill="none" d="M0 0h24v24H0z" />
+				<path d="M3 4h18v2H3V4zm0 7h18v2H3v-2zm0 7h18v2H3v-2z" fill="rgba(68,68,68,1)" />
+			</svg>
+		</div>
+
+		<div class="sidebar">
+    <div class="topo">
+        <p>Hexo-Theme-Quieter</p>
     </div>
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+    <ul>
         
-          <a class="main-nav-link" href="/">Home</a>
+        <li>
+            <a href="/">
+                主页
+            </a>
+        </li>
         
-          <a class="main-nav-link" href="/archives">Archives</a>
+        <li>
+            <a href="/categories">
+                类别
+            </a>
+        </li>
         
-      </nav>
-      <nav id="sub-nav">
+        <li>
+            <a href="/tags">
+                标签
+            </a>
+        </li>
         
+        <li>
+            <a href="/archives">
+                归档
+            </a>
+        </li>
         
-          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        <li>
+            <a href="/galleries">
+                相册
+            </a>
+        </li>
         
-        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
-      </div>
+        <li>
+            <a href="/links">
+                链接
+            </a>
+        </li>
+        
+        <li>
+            <a href="/about">
+                关于
+            </a>
+        </li>
+        
+    </ul>
+    <div class="sidebar-footer">
+        
+        <a href="">
+            <img no-lazy src="/images/bottom_icon/Weibo.webp" alt="Quieter">
+        </a>
+        
+        <a href="">
+            <img no-lazy src="/images/bottom_icon/Tieba.webp" alt="Quieter">
+        </a>
+        
+        <a href="">
+            <img no-lazy src="/images/bottom_icon/Bilibili.webp" alt="Quieter">
+        </a>
+        
+        <a href="">
+            <img no-lazy src="/images/bottom_icon/github.webp" alt="Quieter">
+        </a>
+        
     </div>
-  </div>
+</div>
+<div class='shelter'>
+    <script>
+        $(function() {
+            $('.nav-right-close > svg').click(function() {
+                $('.sidebar').animate({
+                    right: "0"
+                }, 500);
+                $('.shelter').fadeIn("slow");
+            
+                var element = $('.topo');
+                element.addClass('custom-style');
+            
+                var links = null;
+                if ("") {
+                    links = "".split(',');
+                } else {
+                    links = "/images/random_top_img/01.webp,/images/random_top_img/02.webp,/images/random_top_img/03.webp,/images/random_top_img/04.webp,/images/random_top_img/05.webp,/images/random_top_img/06.webp,/images/random_top_img/07.webp".split(',');
+                }
+            
+                var randomLink = links[Math.floor(Math.random() * links.length)];
+                element.css('background-image', "url('" + randomLink + "')");
+            });
+          
+            $('.shelter').click(function(e) {
+                $('.sidebar').animate({
+                    right: "-100%"
+                }, 500);
+                $('.shelter').fadeOut("slow");
+            });
+        });      
+    </script>
+</div>
+	</nav>
+
+	
+		<div class="header-background"></div>
+	
+
+	<script>
+		const name = 'home';
+		const ul = document.querySelectorAll('.nav-right ul')[0];
+		const lis = ul.querySelectorAll('li');
+
+		if (name == 'home') {
+			lis[0].classList.add('select');
+		} else {
+			for (let i = 0; i < lis.length; i++) {
+				const li = lis[i];
+				const a = li.querySelector('a');
+				if (name === a.href.split('/')[3]) {
+					li.classList.add('select');
+				}
+			}
+		}
+	</script>
+	
+	<script>
+		var element = document.querySelector('.header-background');
+		if(element) {
+			element.classList.add('custom-style');
+			var links = null;
+			if("")
+			{
+				links = "".split(',');
+			} else
+			{
+				links = "/images/random_top_img/01.webp,/images/random_top_img/02.webp,/images/random_top_img/03.webp,/images/random_top_img/04.webp,/images/random_top_img/05.webp,/images/random_top_img/06.webp,/images/random_top_img/07.webp".split(',');
+			}
+			var randomLink = links[Math.floor(Math.random() * links.length)];
+			element.style.backgroundImage = "url('" + randomLink + "')";
+		}
+	</script>
+
+	
+<script src="/js/plugins/breadcrumb.js"></script>
+
+	<script>
+		var menus_title = [];
+		
+			menus_title.push({home: '主页'});
+		
+			menus_title.push({categories: '类别'});
+		
+			menus_title.push({tags: '标签'});
+		
+			menus_title.push({archives: '归档'});
+		
+			menus_title.push({galleries: '相册'});
+		
+			menus_title.push({links: '链接'});
+		
+			menus_title.push({about: '关于'});
+		
+		
+			customBreadcrumb(document.getElementById('breadcrumb'), menus_title);
+		
+	</script>
 </header>
 
-      <div class="outer">
-        <section id="main">
-  
-    <article id="post-hello-world" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2024/11/16/hello-world/" class="article-date">
-  <time class="dt-published" datetime="2024-11-16T07:14:34.022Z" itemprop="datePublished">2024-11-16</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2024/11/16/hello-world/">Hello World</a>
-    </h1>
-  
+<div class="main-wrapper">
+	<main class="home">
+		<header class="main-header">
+	
+		
+			
+				
+					<div class="header-background-content">
+						<span>
+							<img no-lazy src="/images/headers_icon/logo_white.webp" alt="Quieter">
+						</span>
+						<h1>居然被你找到了这里！</h1>
+					</div>
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+		
+	
+</header>
+		<div class="post-card-container">
+			<div class="post-card">
+				
+					<div class="post-card-display">
+						<a class="post-card-display-item" href="/2024/11/16/hello-world/">
+							<div class="post-card-top">
+								<h1 class="post-card-top-title">Hello World</h1>
+								
+							</div>
+							<div class="img-container">
+								<img style="" src="/images/random_top_img/01.webp" alt="Cover">
+							</div>
+						</a>
+						<span class="post-card-description">
+							
+						</span>
+						<div class="post-card-meat">
+							<div class="meat-info">
+								<a class="info-category" href="/">
+									GZ-Metal-Cell
+								</a>
+								<time class="info-date">
+									<a href="/archives/2024">2024</a>/<a href="/archives/2024/11">11</a>/16
+								</time>
+							</div>
+							<img no-lazy src="/images/icon/normal.png" class="meat-type" alt="Icon">
+						</div>
+					</div>
+				
+			</div>
+		</div>
+		<div class="change-page">
+			<div class="change-page-item">
+				
+				
+				
+				
+					
+				
+					
+				
+					
+				
+					
+						
+							<div class="select-container">
+								<select aria-label="pagination_select" id="pagination_select" ></select>
+							</div>
+							<script>
+								var select = document.getElementById("pagination_select");
+								for(var i = 1; i < 1 + 1; i++)
+								{
+									var option = document.createElement("option");
+									option.value = i == 1 ? "/" : "/page/" + i.toString();
+									option.text = i;
+									select.add(option);		
+								}
+								select.selectedIndex = 1 - 1;
+								select.onchange = function() {
+									window.location.href = select.value;
+								};
+							</script>
+						
+					
+				
+					
+				
+					
+				
+					
+				
+				<!--
+					
+				-->
+				
+			</div>
+		</div>
+		
+		
+	<aside class="rightside">
+	
+	<div class="rightside-button" id="js-toggle_theme">
+		<span>
+			<img no-lazy src="/images/icon/toggle_theme.png" class="rightside-button-icon" alt="Icon">
+		</span>
+	</div>
 
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+	
+<script src="/js/plugins/goto_position.js"></script>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+	
+	<div class="rightside-button" id="js-go_top">
+		<span>
+			<img no-lazy src="/images/icon/go_top.png" class="rightside-button-icon" alt="Icon">
+		</span>
+	</div>
+	<div class="rightside-button" id="js-go_bottom">
+		<span>
+			<img no-lazy src="/images/icon/go_bottom.png" class="rightside-button-icon" alt="Icon">
+		</span>
+	</div>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2024/11/16/hello-world/" data-id="cm3ju55us0000r0pa1ghqa4s3" data-title="Hello World" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-
-
-</section>
-        
-          <aside id="sidebar">
-  
-    
-
-  
-    
-
-  
-    
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/11/">November 2024</a></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/2024/11/16/hello-world/">Hello World</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-
-  
+	<script>
+		setToggleThemeButtonListener();
+	</script>
+	<script>
+		$('#js-go_top')
+		.gotoPosition( {
+			speed: 300,
+			target: 'top',
+		} );
+		$('#js-go_bottom')
+		.gotoPosition( {
+			speed: 300,
+			target: 'bottom',
+		} );
+	</script>
 </aside>
-        
-      </div>
-      <footer id="footer">
-  
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      
-      &copy; 2024 John Doe<br>
-      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
-    </div>
-  </div>
-</footer>
 
-    </div>
-    <nav id="mobile-nav">
-  
-    <a href="/" class="mobile-nav-link">Home</a>
-  
-    <a href="/archives" class="mobile-nav-link">Archives</a>
-  
-</nav>
+
+<div class="post-bottom">
+    
+    
+    
+</div>
+	</main>
+</div>
+		<footer>
+	<div class="content">
+		
+			<span>©2024&nbsp;By&nbsp;<a href="/about">GZ-Metal-Cell</a>.</span>
+		
+		<span><a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a> theme by <a target="_blank" rel="noopener" href="https://github.com/GZ-Metal-Cell/hexo-theme-quieter">Quieter</a>.</span>
+		
+	</div>
+
+	
+<script src="/js/plugins/ref.js"></script>
+
+	
+<script src="/js/plugins/highlight_tools.js"></script>
+
+	<script>
+		var copyIcon = "/images/icon/copy.png";
+		var closeCodeBlockIcon = "/images/icon/close_code_block.png";
+		var highlightShrink = "";
+		var HighlightHeightLimit = "";
+	</script>
+	
+	<!-- Analytics -->
+
+    
+        <!-- Busuanzi Analytics -->
+        <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
     
 
 
-<script src="/js/jquery-3.6.4.min.js"></script>
+	
 
+	
 
+    
+		
+<script src="/js/plugins/replaceSpacesWithNbsp.js"></script>
 
-  
-<script src="/fancybox/jquery.fancybox.min.js"></script>
+	
 
+	
+	
+	
+		<script>
+			if (typeof init === 'function') {
+				init();
+			}
+		</script>
+	
 
+	
+		
+	
 
+	
 
-<script src="/js/script.js"></script>
+	<!--
+		
+<script src="/js/plugins/jquery.pjax.min.js"></script>
 
+		<script>
+			$(document).pjax('a[target!=_blank]', 'main', {
+				fragment: 'main',
+				timeout: 8000
+			});
 
+			$(document).on('pjax:complete', function() {
+			});
+		</script> 
+	-->
+	<script>
+		console.log('\n %c Hexo-Quieter 主题 %c https://github.com/GZ-Metal-Cell/hexo-theme-quieter \n', 'color: #fadfa3; background: #030307; padding:5px 0;', 'background: #fadfa3; padding:5px 0;')
+	</script>
+</footer>
+	</body>
 
-
-
-  </div>
-</body>
+	<!-- Hexo-Quieter 主题  https://github.com/GZ-Metal-Cell/hexo-theme-quieter -->
 </html>
+
