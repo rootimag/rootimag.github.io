@@ -19,26 +19,25 @@
   <meta name="author" content="rootimag">
   <meta name="keywords" content="C++, Arch Linux, Linux, Niri, Blog">
   
-    <meta name="description" content="Arch Linux 安装指南0. 进入安装环境推荐使用 ventoy 引导，直接将 Arch Linux ISO 拷贝进 U 盘即可。   选择第一个选项。   进入 Arch Linux Live 的 TTY，就可以开始安装了。 01. 确认 UEFI 引导在正式安装前，需要先确认是否为 UEFI 引导。 ls &#x2F;sys&#x2F;firmware&#x2F;efi&#x2F;efivars   若显示 efivars,则">
+    <meta name="description" content="C++ 多线程1. 多线程概念在计算机中，多线程涉及以下概念:  进程(Process): 是资源分配的最小单位。 线程(Thread): 是CPU 调度的最小单位。 多线程(Multi-thread): 是多核 CPU 的并行计算。  在硬件条件下，由于单核 CPU 频率难以上升，为了运行效率，需要使用多线程，充分发挥多核 CPU 的能力。 多线程的好处:  程序运行效率提高 避免程序运行阻塞">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Arch Linux 安装指南">
-<meta property="og:url" content="http://rootimag.github.io/2026/07/11/arch-linux-install-guide/index.html">
+<meta property="og:title" content="【C++ 学习】多线程">
+<meta property="og:url" content="http://rootimag.github.io/2026/07/12/%E3%80%90C-%E5%AD%A6%E4%B9%A0%E3%80%91%E5%A4%9A%E7%BA%BF%E7%A8%8B/index.html">
 <meta property="og:site_name" content="rootimag&#39;s blog">
-<meta property="og:description" content="Arch Linux 安装指南0. 进入安装环境推荐使用 ventoy 引导，直接将 Arch Linux ISO 拷贝进 U 盘即可。   选择第一个选项。   进入 Arch Linux Live 的 TTY，就可以开始安装了。 01. 确认 UEFI 引导在正式安装前，需要先确认是否为 UEFI 引导。 ls &#x2F;sys&#x2F;firmware&#x2F;efi&#x2F;efivars   若显示 efivars,则">
+<meta property="og:description" content="C++ 多线程1. 多线程概念在计算机中，多线程涉及以下概念:  进程(Process): 是资源分配的最小单位。 线程(Thread): 是CPU 调度的最小单位。 多线程(Multi-thread): 是多核 CPU 的并行计算。  在硬件条件下，由于单核 CPU 频率难以上升，为了运行效率，需要使用多线程，充分发挥多核 CPU 的能力。 多线程的好处:  程序运行效率提高 避免程序运行阻塞">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://rootimag.github.io/img/default.png">
-<meta property="article:published_time" content="2026-07-11T06:36:25.000Z">
-<meta property="article:modified_time" content="2026-07-11T10:05:35.542Z">
+<meta property="article:published_time" content="2026-07-12T08:45:05.000Z">
+<meta property="article:modified_time" content="2026-07-12T10:54:43.235Z">
 <meta property="article:author" content="rootimag">
-<meta property="article:tag" content="Arch Linux">
-<meta property="article:tag" content="Linux">
-<meta property="article:tag" content="折腾记录">
+<meta property="article:tag" content="C++">
+<meta property="article:tag" content="多线程， 编程">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="http://rootimag.github.io/img/default.png">
   
   
   
-  <title>Arch Linux 安装指南 - rootimag&#39;s blog</title>
+  <title>【C++ 学习】多线程 - rootimag&#39;s blog</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -307,7 +306,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="Arch Linux 安装指南"></span>
+            <span id="subtitle" data-typed-text="【C++ 学习】多线程"></span>
           
         </div>
 
@@ -318,8 +317,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2026-07-11 14:36" pubdate>
-          2026年7月11日 下午
+        <time datetime="2026-07-12 16:45" pubdate>
+          2026年7月12日 下午
         </time>
       </span>
     
@@ -330,7 +329,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          3.5k 字
+          2.5k 字
         
       </span>
     
@@ -341,7 +340,7 @@
         
         
         
-          30 分钟
+          22 分钟
         
       </span>
     
@@ -380,227 +379,121 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">Arch Linux 安装指南</h1>
+            <h1 id="seo-header">【C++ 学习】多线程</h1>
             
             
               <div class="markdown-body">
                 
-                <h1 id="Arch-Linux-安装指南"><a href="#Arch-Linux-安装指南" class="headerlink" title="Arch Linux 安装指南"></a>Arch Linux 安装指南</h1><h2 id="0-进入安装环境"><a href="#0-进入安装环境" class="headerlink" title="0. 进入安装环境"></a>0. 进入安装环境</h2><p>推荐使用 <a target="_blank" rel="noopener" href="https://www.ventoy.net/">ventoy</a> 引导，直接将 Arch Linux ISO 拷贝进 U 盘即可。</p>
-<img src="/2026/07/11/arch-linux-install-guide/0-1.png" srcset="/img/loading.gif" lazyload class="" title="GNU GRUB 引导">
-
-<p>选择第一个选项。</p>
-<img src="/2026/07/11/arch-linux-install-guide/0-2.png" srcset="/img/loading.gif" lazyload class="" title="Arch Linux TTY">
-
-<p>进入 Arch Linux Live 的 TTY，就可以开始安装了。</p>
-<h2 id="01-确认-UEFI-引导"><a href="#01-确认-UEFI-引导" class="headerlink" title="01. 确认 UEFI 引导"></a>01. 确认 UEFI 引导</h2><p>在正式安装前，需要先确认是否为 UEFI 引导。</p>
-<p><code>ls /sys/firmware/efi/efivars</code></p>
-<img src="/2026/07/11/arch-linux-install-guide/1-1.png" srcset="/img/loading.gif" lazyload class="" title="UEFI 引导">
-
-<p>若显示 <code>efivars</code>,则为 UEFI 引导。</p>
-<h2 id="02-连接网络"><a href="#02-连接网络" class="headerlink" title="02. 连接网络"></a>02. 连接网络</h2><h3 id="有线连接"><a href="#有线连接" class="headerlink" title="有线连接"></a>有线连接</h3><p>通常情况下，只要插入由路由器提供的有线网卡即可。</p>
-<h3 id="无线连接"><a href="#无线连接" class="headerlink" title="无线连接"></a>无线连接</h3><p>Arch Linux Live 内置了 iwd 无线 wifi 模块，建议使用 <code>iwctl</code> 进行无线连接。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 进入交互式命令行</span><br>iwctl<br><br><span class="hljs-comment"># 列出无线网卡设备名</span><br>device list<br><br><span class="hljs-comment"># 扫描可用网络</span><br>station wlan0 scan<br><br><span class="hljs-comment"># 列出可用 wifi 网络</span><br>station wlan0 get-networks<br><br><span class="hljs-comment"># 连接 wifi 网络</span><br>station wlan0 connect &lt;network name&gt;<br><br><span class="hljs-comment"># 退出</span><br><span class="hljs-built_in">exit</span><br></code></pre></td></tr></table></figure>
-
-<p>测试网络连接:</p>
-<p><code>ping -c4 www.baidu.com</code></p>
-<p>若有数据包传输，则连接成功。</p>
-<h2 id="03-更新系统时钟"><a href="#03-更新系统时钟" class="headerlink" title="03. 更新系统时钟"></a>03. 更新系统时钟</h2><p>使用 <code>timedatectl</code> 确保时钟正确。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">timedatectl set-ntp <span class="hljs-literal">true</span> <span class="hljs-comment"># 同步网络时间</span><br><br>timedatectl status <span class="hljs-comment"># 检查服务状态</span><br></code></pre></td></tr></table></figure>
-
-<img src="/2026/07/11/arch-linux-install-guide/3-1.png" srcset="/img/loading.gif" lazyload class="" title="时钟同步">
-
-<h2 id="05-更换镜像源"><a href="#05-更换镜像源" class="headerlink" title="05. 更换镜像源"></a>05. 更换镜像源</h2><p>使用 <code>vim</code>  修改 <code>/etc/pacman.d/mirrorlist</code> 文件，将 <code>Server</code> 替换为你需要的镜像源。</p>
-<p><code>vim /etc/pacman.d/mirrorlist</code></p>
-<p>中国镜像源推荐:</p>
-<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs awk">Server = https:<span class="hljs-regexp">//mi</span>rrors.ustc.edu.cn<span class="hljs-regexp">/archlinux/</span><span class="hljs-variable">$repo</span><span class="hljs-regexp">/os/</span><span class="hljs-variable">$arch</span> <span class="hljs-comment"># 中国科学技术大学开源镜像站</span><br>Server = https:<span class="hljs-regexp">//mi</span>rrors.tuna.tsinghua.edu.cn<span class="hljs-regexp">/archlinux/</span><span class="hljs-variable">$repo</span><span class="hljs-regexp">/os/</span><span class="hljs-variable">$arch</span> <span class="hljs-comment"># 清华大学开源软件镜像站</span><br>Server = https:<span class="hljs-regexp">//</span>repo.huaweicloud.com<span class="hljs-regexp">/archlinux/</span><span class="hljs-variable">$repo</span><span class="hljs-regexp">/os/</span><span class="hljs-variable">$arch</span> <span class="hljs-comment"># 华为开源镜像站</span><br>Server = http:<span class="hljs-regexp">//mi</span>rror.lzu.edu.cn<span class="hljs-regexp">/archlinux/</span><span class="hljs-variable">$repo</span><span class="hljs-regexp">/os/</span><span class="hljs-variable">$arch</span> <span class="hljs-comment"># 兰州大学开源镜像站</span><br></code></pre></td></tr></table></figure>
-
-<h2 id="06-创建与格式化分区"><a href="#06-创建与格式化分区" class="headerlink" title="06. 创建与格式化分区"></a>06. 创建与格式化分区</h2><h3 id="创建分区"><a href="#创建分区" class="headerlink" title="创建分区"></a>创建分区</h3><p>考虑到多数情况，本指南将以以下分区为例:</p>
+                <h1 id="C-多线程"><a href="#C-多线程" class="headerlink" title="C++ 多线程"></a>C++ 多线程</h1><h2 id="1-多线程概念"><a href="#1-多线程概念" class="headerlink" title="1. 多线程概念"></a>1. 多线程概念</h2><p>在计算机中，多线程涉及以下概念:</p>
 <ul>
-<li><code>/</code> 根目录: <code>&gt;= 120GB</code> （与用户主目录位于同一 <code>btrfs</code> 文件系统上）</li>
-<li><code>/home</code> 用户主目录: <code>&gt;= 20GB</code> （与根目录位于同一 <code>btrfs</code> 文件系统上）</li>
-<li><code>/boot</code> EFI 引导分区: <code>&gt;= 256MB</code> （若有 <code>Windows</code> 系统，无须重复创建！）</li>
-<li><code>swap</code> 交换分区: <code>&gt;= RAM * 60%</code></li>
+<li>进程(Process): 是<strong>资源分配</strong>的最小单位。</li>
+<li>线程(Thread): 是<strong>CPU 调度</strong>的最小单位。</li>
+<li>多线程(Multi-thread): 是多核 CPU 的并行计算。</li>
 </ul>
-<ol>
-<li>查看分区情况</li>
-</ol>
-<p>通过 <code>lsblk</code> 查看分区情况。</p>
-<img src="/2026/07/11/arch-linux-install-guide/6-1.png" srcset="/img/loading.gif" lazyload class="" title="分区情况">
-
-<p><code>sdx / nvmexn1</code> 分区为将要安装系统的空白分区</p>
-<ol start="2">
-<li>建立分区表</li>
-</ol>
-<p>通过 <code>cfdisk</code> 创建分区。</p>
-<p><code>cfdisk /dev/sdx # 对于 SCSI 指令集的硬盘</code></p>
-<p><code>cfdisk /dev/nvmexn1 # 对于 NVMe 指令集的硬盘</code></p>
-<img src="/2026/07/11/arch-linux-install-guide/6-2.png" srcset="/img/loading.gif" lazyload class="" title="分区表类型">
-
-<p>对于分区表类型，选择 <code>GPT</code> 类型。</p>
-<ol start="3">
-<li>创建分区</li>
-</ol>
-<p>进入 <code>cfdisk</code> 后，使用 <code>↑</code> 和 <code>↓</code> 在磁盘分区移动，使用 <code>←</code> 和 <code>→</code> 在分区操作移动。</p>
-<img src="/2026/07/11/arch-linux-install-guide/6-3.png" srcset="/img/loading.gif" lazyload class="" title="创建分区">
-
-<p>按照如图所示，创建分区后，选中 <code>[Write]</code> 进行写入。</p>
-<ol start="4">
-<li>检查分区</li>
-</ol>
-<p>使用 <code>fdsik -l</code> 或 <code>lsblk</code> 查看分区情况。</p>
-<img src="/2026/07/11/arch-linux-install-guide/6-4.png" srcset="/img/loading.gif" lazyload class="" title="分区情况">
-
-<h3 id="格式化分区"><a href="#格式化分区" class="headerlink" title="格式化分区"></a>格式化分区</h3><ol>
-<li>格式化 <code>EFI</code> 引导分区</li>
-</ol>
-<p><code>mkfs.fat -F32 /dev/sdx1</code></p>
-<p><code>mkfs.fat -F32 /dev/nvmexn1</code></p>
-<p>Warning: 如果硬盘上已有操作系统，请不要格式化，否则会导致无法引导！</p>
-<ol start="2">
-<li>格式化 <code>Swap</code> 分区</li>
-</ol>
-<p><code>mkswap /dev/sdx2</code></p>
-<p><code>mkswap /dev/nvmexn2</code></p>
-<ol start="3">
-<li>格式化 <code>/</code> 分区</li>
-</ol>
-<p><code>mkfs.btrfs -L [label] /dev/sdx3</code></p>
-<p><code>mkfs.btrfs -L [label] /dev/nvmexn3</code></p>
-<blockquote>
-<p>参数说明：<code>label</code> 为分区标签，请填写你喜欢的名称。</p>
-</blockquote>
-<img src="/2026/07/11/arch-linux-install-guide/6-5.png" srcset="/img/loading.gif" lazyload class="" title="完整格式步骤">
-
-<ol start="4">
-<li>挂载 <code>/</code> 分区</li>
-</ol>
-<p><code>mount -t btrfs -o compress=zstd /dev/sda3 /mnt</code></p>
-<p><code>mount -t btrfs -o compress=zstd /dev/nvmexn3 /mnt</code></p>
-<blockquote>
-<p>参数说明: </p>
+<p>在硬件条件下，由于单核 CPU 频率难以上升，为了运行效率，需要使用多线程，充分发挥多核 CPU 的能力。</p>
+<p>多线程的好处:</p>
 <ul>
-<li><code>-t</code> 指定文件系统类型</li>
-<li><code>-o</code> 指定文件系统选项<ul>
-<li><code>compress=zstd</code> 使用 <code>zstd</code> 压缩文件系统</li>
+<li>程序运行效率提高</li>
+<li>避免程序运行阻塞</li>
+</ul>
+<p>但是由于异步执行的特性，多线程的缺点:</p>
+<ul>
+<li><strong>数据竞争(Data Race)</strong><br>当多个线程同时访问同一个数据时，可能会导致数据不一致的情况出现。</li>
+<li><strong>竞态条件(Race Condition)</strong><br>程序执行的顺序是不确定的，可能会导致有依赖关系的的代码被随机错误地执行，极难调试。</li>
+<li><strong>死锁(Deadlock)</strong><br>当多个线程互相等待对方的资源，造成互相等待，导致死锁。</li>
+<li>性能下降<br>多线程的创建会导致线程切换的开销，使用不当降低了程序的性能。</li>
+</ul>
+<h2 id="2-多线程的实现"><a href="#2-多线程的实现" class="headerlink" title="2. 多线程的实现"></a>2. 多线程的实现</h2><p>C++ 在 C++11 引入了 <code>&lt;thread&gt;</code> 线程库，使得我们可以忽略不同平台的底层线程 API 差异。</p>
+<p>实现细节:</p>
+<ul>
+<li><code>class std::thread</code> 为线程的封装类，包含了线程的生命周期管理等功能。<br>维护以下内容:<ul>
+<li><strong>线程句柄(Thread Handle)</strong>: 操作系统中的线程标识符，用于 <code>join()</code> 和 <code>detach()</code>。</li>
+<li><strong>线程栈(Thread Stack)</strong>: 操作系统分配的私有栈空间，用于存储线程的本地数据（可用 <code>ulimit -s</code> 查看大小）。</li>
+<li><strong>TLS(Thread Local Storage)</strong>: 线程局部存储，用于存储线程的本地数据。</li>
 </ul>
 </li>
 </ul>
-</blockquote>
-<ol start="5">
-<li>创建 <code>Btrfs</code> 子卷</li>
+<p>Warning: 线程不可复制，即 <code>thread(const thread&amp;) = delete;</code>，但可以使用移动语义</p>
+<p>底层操作:</p>
+<ul>
+<li><strong>类型擦除(Type Erasure)</strong>: <code>std::thread</code> 为了接受所有可调用对象(lambda，函数对象，函数指针等)，会打包进 <code>std::function</code> 对象。</li>
+<li><strong>构造函数拷贝&#x2F;移动参数</strong>: 正如上文，线程有私有的线程栈，需要将参数拷贝或移动到线程栈中（主要性能开销）。</li>
+<li><strong>异常捕获</strong>: 底层入口函数会包裹一个 <code>try-catch</code> 块，用于调用 <code>std::terminate()</code>，防止程序崩溃。</li>
+</ul>
+<h2 id="3-多线程的使用"><a href="#3-多线程的使用" class="headerlink" title="3. 多线程的使用"></a>3. 多线程的使用</h2><ol>
+<li>创建线程(<code>&lt;thread&gt;</code>)</li>
 </ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash">btrfs subvolume create /mnt/@ <span class="hljs-comment"># 创建 / 根目录子卷</span><br>btrfs subvolume create /mnt/@home <span class="hljs-comment"># 创建 /home 用户主目录子卷</span><br><br>btrfs subvolume list -p /mnt <span class="hljs-comment"># 查看子卷</span><br></code></pre></td></tr></table></figure>
-
-<img src="/2026/07/11/arch-linux-install-guide/6-6.png" srcset="/img/loading.gif" lazyload class="" title="创建子卷">
-
-<ol start="6">
-<li>卸载子卷</li>
-</ol>
-<p><code>umount /mnt</code></p>
-<h2 id="07-挂载分区"><a href="#07-挂载分区" class="headerlink" title="07. 挂载分区"></a>07. 挂载分区</h2><p>在挂载时，需按照如下顺序进行挂载:</p>
-<ol>
-<li>挂载 <code>/</code> 目录</li>
-</ol>
-<p><code>mount -t btrfs -o subvol=@,compress=zstd /dev/sda3 /mnt</code></p>
+<ul>
+<li>语法: <code>std::thread t(func, args...);</code></li>
+<li>参数:<ul>
+<li><code>func</code>: 要执行的可调用对象。</li>
+<li><code>args...</code>: 可调用对象的参数。</li>
+</ul>
+</li>
+<li>细节:<ul>
+<li>引用传递: 可以使用 <code>std::ref()</code> 函数将对象引用传递给线程，优化性能。</li>
+<li>生命周期: 创建后必须使用 <code>t.join()</code> （阻塞主线程直到结束） 或 <code>t.detach()</code> （分离线程后台运行），优先使用 <code>t.join()</code> 或 <code>RAII</code> 封装。</li>
+</ul>
+</li>
+</ul>
 <ol start="2">
-<li>挂载 <code>/home</code> 目录</li>
+<li>互斥量(<code>&lt;mutex&gt;</code>)</li>
 </ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">mkdir</span> /mnt/home<br>mount -t btrfs -o subvol=@home,compress=zstd /dev/sda3 /mnt/home<br></code></pre></td></tr></table></figure>
-
+<p>解决线程间的数据竞争问题。</p>
+<ul>
+<li>语法: <code>std::mutex mtx;</code></li>
+<li>细节:<ul>
+<li><code>mtx.lock()</code> 和 <code>mtx.unlock()</code> 用于加锁和解锁（Warning: 不建议使用）。</li>
+<li><code>std::lock_guard&lt;std::mutex&gt; lock(mtx);</code>: <code>RAII</code> 的典范，用于自动加锁和解锁，在多个互斥量情况下容易死锁（推荐使用）。</li>
+<li><code>std::scoped_lock&lt;std::mutex&gt; lock(mtx);</code>: 给多个互斥量加锁，防止死锁（推荐使用）。</li>
+</ul>
+</li>
+</ul>
 <ol start="3">
-<li>挂载 <code>/boot</code> 目录</li>
+<li>原子操作(<code>&lt;atomic&gt;</code>)</li>
 </ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">mkdir</span> /mnt/boot<br>mount /dev/sda1 /mnt/boot<br></code></pre></td></tr></table></figure>
+<p>对互斥量的优化。</p>
+<ul>
+<li>语法: <code>std::atomic&lt;T&gt; var;</code></li>
+<li>细节:<ul>
+<li><code>var.load()</code> 读取当前变量值。</li>
+<li><code>var.store(x)</code> 设置变量值为 <code>x</code>。</li>
+<li>保证数据的原子性，无须加锁，性能更好。</li>
+</ul>
+</li>
+</ul>
+<p><strong>CAS 优化</strong></p>
+<p>代码实例:</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs cpp">std::atomic&lt;<span class="hljs-type">int</span>&gt; counter;<br><span class="hljs-comment">// ...</span><br><span class="hljs-keyword">if</span> (counter &gt; <span class="hljs-number">0</span>) &#123; <span class="hljs-comment">// 原子操作 1</span><br>    counter--;     <span class="hljs-comment">// 原子操作 2</span><br>&#125;<br></code></pre></td></tr></table></figure>
 
+<p>虽然 <code>atomic</code> 对于单个操作是原子的，但是多个操作不是原子的，例如上面的**检查-在执行(Check-then-act)**竞态条件。</p>
+<p>为了解决此类问题，C++ 的答案为 <strong>Compare-and-Swap(CAS)</strong> 操作，提供了一个语义：“如果值等于预期值，就把它改成新值；否则就什么都不做。”。<br>使用 <code>std::atomic::compare_exchange_strong()</code> 函数实现。</p>
+<p>代码修改:</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs cpp">std::atomic&lt;<span class="hljs-type">int</span>&gt; counter&#123;<span class="hljs-number">1</span>&#125;;<br><br><span class="hljs-type">int</span> old_val = counter.<span class="hljs-built_in">load</span>();<br><span class="hljs-keyword">while</span> (<span class="hljs-literal">true</span>) &#123;<br>    <span class="hljs-keyword">if</span> (old_val &lt;= <span class="hljs-number">0</span>) <span class="hljs-keyword">break</span>; <span class="hljs-comment">// 单原子，无耦合</span><br><br>    <span class="hljs-keyword">if</span> (counter.<span class="hljs-built_in">compare_exchange_strong</span>(old_val, old_val - <span class="hljs-number">1</span>)) &#123;<br>        <span class="hljs-keyword">break</span>;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p><strong>内存序(Memory Order) 优化</strong></p>
+<p>默认情况下，原子操作均使用 <code>std::memory_order_seq_cst</code> （顺序一致性），保证全局执行顺序。</p>
+<ul>
+<li><code>std::memory_order_relaxed</code>: 仅保证原子性，不保证指令顺序，编译器会乱序优化。</li>
+<li><code>std::memory_order_acquire</code> &#x2F; <code>release</code>: 建立线程内同步逻辑，<code>release</code> 操作保证在 <code>acquire</code> 之前全部完成。</li>
+<li><code>std::memory_order_seq_cst</code>: 默认，最严格，保证指令顺序，但性能开销大。</li>
+</ul>
 <ol start="4">
-<li>挂载 <code>/swap</code> 目录</li>
+<li>线程间通信(<code>Inter-Thread Communication</code>)</li>
 </ol>
-<p><code>swapon /dev/sda2</code></p>
-<img src="/2026/07/11/arch-linux-install-guide/7-1.png" srcset="/img/loading.gif" lazyload class="" title="完整挂载步骤">
-
-<h2 id="08-安装基础软件包"><a href="#08-安装基础软件包" class="headerlink" title="08. 安装基础软件包"></a>08. 安装基础软件包</h2><p>通过 <code>pacstrap</code> 安装基础软件包。</p>
-<p><code>pacstrap /mnt base base-devel linux linux-firmware btrfs-progs</code></p>
-<blockquote>
-<p>参数说明:</p>
+<p>在多线程中，为了等待特定条件，需要使用 <code>std::condition_variable</code>，严禁使用 <code>while</code>。</p>
+<p>条件变量(<code>condition_variable</code>)</p>
+<p>用于线程挂起与唤醒，实现线程同步。</p>
 <ul>
-<li><code>base</code> 基础软件包</li>
-<li><code>base-devel</code> 基础开发软件包</li>
-<li><code>linux</code> 内核</li>
-<li><code>linux-firmware</code> 内核固件</li>
-<li><code>btrfs-progs</code> <code>Btrfs</code> 文件系统工具</li>
+<li>语法: <code>std::condition_variable cv;</code></li>
+<li>依赖: 必须配合 <code>std::unique_lock&lt;std::mutex&gt;</code> 使用。</li>
+<li>调用:<ul>
+<li><code>cv.wait(lock, predicate);</code>: 若不满足条件则挂起并释放锁，直到满足条件为止。</li>
+<li><code>cv.notify_one();</code> &#x2F; <code>cv.notify_all();</code>: 唤醒一个或所有线程。</li>
 </ul>
-</blockquote>
-<img src="/2026/07/11/arch-linux-install-guide/8-1.png" srcset="/img/loading.gif" lazyload class="" title="安装基础软件包">
-
-<p>安装必要功能性软件包。</p>
-<p><code>pacstrap /mnt networkmanager vim sudo zsh zsh-completions</code></p>
-<h2 id="09-生成-fstab-文件"><a href="#09-生成-fstab-文件" class="headerlink" title="09. 生成 fstab 文件"></a>09. 生成 fstab 文件</h2><p><code>fstab</code> 用于定义分区挂载点，以便在系统启动时自动挂载分区，使用 <code>genfstab</code> 生成 <code>fstab</code> 文件。</p>
-<p><code>genfstab -U /mnt &gt;&gt; /mnt/etc/fstab</code></p>
-<h2 id="10-切换到新系统"><a href="#10-切换到新系统" class="headerlink" title="10. 切换到新系统"></a>10. 切换到新系统</h2><p><code>arch-chroot /mnt /bin/bash</code></p>
-<img src="/2026/07/11/arch-linux-install-guide/10-1.png" srcset="/img/loading.gif" lazyload class="" title="切换到新系统">
-
-<h2 id="11-主机名与时区设置"><a href="#11-主机名与时区设置" class="headerlink" title="11. 主机名与时区设置"></a>11. 主机名与时区设置</h2><p>在 <code>/etc/hostname</code> 设置主机名</p>
-<img src="/2026/07/11/arch-linux-install-guide/11-1.png" srcset="/img/loading.gif" lazyload class="" title="主机名设置">
-
-<p>在 <code>/etc/hosts</code> 设置主机名解析</p>
-<p>加入 <code>127.0.1.1 [name].localdomain [name]</code></p>
-<img src="/2026/07/11/arch-linux-install-guide/11-2.png" srcset="/img/loading.gif" lazyload class="" title="主机名解析">
-
-<p>在 <code>/etc/localtime</code> 设置时区</p>
-<p><code>ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime</code></p>
-<ol start="12">
-<li>硬件时间设置</li>
-</ol>
-<p>使用 <code>hwclock</code> 设置硬件时间，将系统时间同步到硬件时间，以便在系统重启后不会丢失时间。</p>
-<p><code>hwclock --systohc</code></p>
-<ol start="13">
-<li>locale 设置</li>
-</ol>
-<p><code>locale</code> 决定了系统的语言环境，包括字符集，日期格式，货币符号等。</p>
-<p>编辑 <code>/etc/locale.gen</code> 文件，取消 <code>en_US.UTF-8</code> 和 <code>zh_CN.UTF-8</code> 的注释，并保存文件。</p>
-<p><code>vim /etc/locale.gen</code></p>
-<img src="/2026/07/11/arch-linux-install-guide/13-1.png" srcset="/img/loading.gif" lazyload class="" title="locale 设置">
-
-<p>运行 <code>locale-gen</code> 生成本地化文件。</p>
-<p>向 <code>/etc/locale.conf</code> 添加语言环境变量，以便在系统启动后生效。</p>
-<p><code>echo &quot;LANG=en_US.UTF-8&quot; &gt; /etc/locale.conf</code></p>
-<h2 id="14-root-用户设置"><a href="#14-root-用户设置" class="headerlink" title="14. root 用户设置"></a>14. root 用户设置</h2><p>为了便于使用，我们需要设置 root 用户的密码。</p>
-<p><code>passwd root</code></p>
-<img src="/2026/07/11/arch-linux-install-guide/14-1.png" srcset="/img/loading.gif" lazyload class="" title="root 用户设置">
-
-<h2 id="15-安装引导"><a href="#15-安装引导" class="headerlink" title="15. 安装引导"></a>15. 安装引导</h2><p>安装引导软件包。</p>
-<p><code>pacman -S grub efibootmgr os-prober</code></p>
-<blockquote>
-<p>参数说明:</p>
-<ul>
-<li><code>grub</code> GRUB 引导</li>
-<li><code>efibootmgr</code> EFI 引导</li>
-<li><code>os-prober</code> 检测操作系统</li>
+</li>
 </ul>
-</blockquote>
-<p>安装 GRUB 到 EFI 分区:</p>
-<p><code>grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=ArchLinux</code></p>
-<blockquote>
-<p>参数说明:</p>
-<ul>
-<li><code>--target=x86_64-efi</code> 指定引导目标为 x86_64-efi</li>
-<li><code>--efi-directory=/boot</code> 指定 EFI 分区路径</li>
-<li><code>--bootloader-id=ArchLinux</code> 指定引导 ID</li>
-</ul>
-</blockquote>
-<p>编辑 <code>/etc/default/grub</code> 文件:</p>
-<ul>
-<li><code>GRUB_CMDLINE_LINUX_DEFAULT</code> 改为 <code>loglevel=5 nowatchdog</code></li>
-<li>添加 <code>GRUB_DISABLE_OS_PROBER=false</code> 以引导 <code>windows</code></li>
-</ul>
-<p>生成 <code>GRUB</code> 配置文件:</p>
-<p><code>grub-mkconfig -o /boot/grub/grub.cfg</code></p>
-<h2 id="16-系统启动"><a href="#16-系统启动" class="headerlink" title="16. 系统启动"></a>16. 系统启动</h2><p>使用 <code>exit</code> 退出 Arch Linux Live 环境，然后重启电脑即可。</p>
-<p>设置 <code>networkmanager</code> 服务。</p>
-<p><code>systemctl enable --now NetworkManager.service</code></p>
-<p>然后使用 <code>nmtui</code> 或 <code>nmcli</code> 连接网络</p>
-<h2 id="17-大功告成"><a href="#17-大功告成" class="headerlink" title="17. 大功告成"></a>17. 大功告成</h2><p>使用 <code>pacman -S fastfetch</code> 安装 <code>fastfetch</code>，查看系统信息。</p>
-<p>如此，<code>Arch Linux</code> 安装就完成了。</p>
+<p>Warning: 操作系统可能在无信号条件下唤醒线程，建议 <code>wait</code> 搭配 <strong>lambda 谓词</strong> 使用。</p>
 
                 
               </div>
@@ -619,15 +512,8 @@
     
       <span class="category-chain">
         
-  <a href="/categories/%E6%8A%80%E6%9C%AF/" class="category-chain-item">技术</a>
+  <a href="/categories/C/" class="category-chain-item">C++</a>
   
-  
-    <span>></span>
-    
-  <a href="/categories/%E6%8A%80%E6%9C%AF/%E7%B3%BB%E7%BB%9F%E9%83%A8%E7%BD%B2/" class="category-chain-item">系统部署</a>
-  
-  
-
   
 
       </span>
@@ -641,11 +527,9 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/Linux/" class="print-no-link">#Linux</a>
+        <a href="/tags/C/" class="print-no-link">#C++</a>
       
-        <a href="/tags/Arch-Linux/" class="print-no-link">#Arch Linux</a>
-      
-        <a href="/tags/%E6%8A%98%E8%85%BE%E8%AE%B0%E5%BD%95/" class="print-no-link">#折腾记录</a>
+        <a href="/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B%EF%BC%8C-%E7%BC%96%E7%A8%8B/" class="print-no-link">#多线程， 编程</a>
       
     </div>
   
@@ -657,8 +541,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>Arch Linux 安装指南</div>
-      <div>http://rootimag.github.io/2026/07/11/arch-linux-install-guide/</div>
+      <div>【C++ 学习】多线程</div>
+      <div>http://rootimag.github.io/2026/07/12/【C-学习】多线程/</div>
     </div>
     <div class="license-meta">
       
@@ -670,7 +554,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2026年7月11日</div>
+          <div>2026年7月12日</div>
         </div>
       
       
@@ -705,6 +589,12 @@
                   </article>
                   <article class="post-next col-6">
                     
+                    
+                      <a href="/2026/07/11/Arch-Linux-%E5%AE%89%E8%A3%85%E6%8C%87%E5%8D%97/" title="Arch Linux 安装指南">
+                        <span class="hidden-mobile">Arch Linux 安装指南</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
                     
                   </article>
                 </div>
