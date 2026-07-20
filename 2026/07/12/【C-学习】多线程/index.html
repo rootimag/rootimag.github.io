@@ -28,7 +28,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://rootimag.github.io/img/default.png">
 <meta property="article:published_time" content="2026-07-12T08:45:05.000Z">
-<meta property="article:modified_time" content="2026-07-13T09:02:52.919Z">
+<meta property="article:modified_time" content="2026-07-20T09:17:04.827Z">
 <meta property="article:author" content="rootimag">
 <meta property="article:tag" content="C++">
 <meta property="article:tag" content="多线程， 编程">
@@ -477,7 +477,30 @@
 <p>为了解决此类问题，C++ 的答案为 <strong>Compare-and-Swap(CAS)</strong> 操作，提供了一个语义：“如果值等于预期值，就把它改成新值；否则就什么都不做。”。</p>
 <p>C++ 定义了 <code>std::atomic::compare_exchange_strong()</code> 和 <code>std::atomic::compare_exchange_weak()</code> 函数实现，之所以有两个函数，是因为<code>strong</code> 严格保证原子性，而 <code>weak</code> 不严格，可能出现伪失败(Spurious Failure)。</p>
 <p>在 x86&#x2F;x64 (CAS 架构) 上，提供了 CPU 指令 <code>LOCK CMPXCHG</code>，天然强指令，故 <code>strong</code> 和 <code>weak</code> 开销基本一致，而在 ARM&#x2F;PowerPC&#x2F;RISC-V (LL&#x2F;SC 架构) 上，CPU 不提供 <code>CMPXCHG</code>，而是使用 <strong>LL&#x2F;SC(Load-Link&#x2F;Store-Conditional)</strong>，操作是分离的，可能出现判断成功，但操作失败的情况，在此情况下 <code>weak</code> 性能强于 <code>strong</code>。</p>
-<p>| 特性 | <code>strong</code> | <code>weak</code> |<br>| — | — |<br>| 原子性 | 严格保证 | 不严格，可能出现伪失败 |<br>| 开销 | 可能略慢 | 在 ARM 等架构更好 |<br>| 场景 | 单次逻辑判断 | 循环无锁判断 |</p>
+<table>
+<thead>
+<tr>
+<th>特性</th>
+<th><code>strong</code></th>
+<th><code>weak</code></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>原子性</td>
+<td>严格保证</td>
+<td>不严格，可能出现伪失败</td>
+</tr>
+<tr>
+<td>开销</td>
+<td>可能略慢</td>
+<td>在 ARM 等架构更好</td>
+</tr>
+<tr>
+<td>场景</td>
+<td>单次逻辑判断</td>
+<td>循环无锁判断</td>
+</tr>
+</tbody></table>
 <p>语法: <code>var.compare_exchange_{type}(expected, desired)</code></p>
 <ul>
 <li><code>expected</code>: 预期值</li>

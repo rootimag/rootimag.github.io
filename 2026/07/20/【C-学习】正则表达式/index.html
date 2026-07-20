@@ -19,26 +19,25 @@
   <meta name="author" content="rootimag">
   <meta name="keywords" content="C++, Arch Linux, Linux, Niri, Blog">
   
-    <meta name="description" content="学习 CMAKE：从入门到构建 C++ 项目1. CMake 介绍在学习 C++ 的过程中，很多人起初只关注语法、算法和数据结构，但是在尝试做一个项目的时候，如何管理越来越多的源文件、头文件、第三方库以及不同平台的编译配置，成了一个棘手的问题。 为了解决这个问题，CMake 被设计，用于管理 C++ 项目的构建过程。 CMake 本身不是编译器，而是一个跨平台的构建系统，根据 CMakeLists">
+    <meta name="description" content="正则表达式1. 正则表达式简介正则表达式（Regular Expression）是一种用于匹配、查找和替换的工具，以字母、数字和符号组成的微型语言，定义一段“文本模式”。 2. 正则表达式语法正则表达式由普通字符（如 a, b, c）和元字符（带特殊意义的字符）组成。 2.1 字符类（Character Class） 用于匹配特定范围或类型的单个字符。    语法 含义 示例    . 匹配除换行">
 <meta property="og:type" content="article">
-<meta property="og:title" content="【C++ 学习】CMake 项目构建">
-<meta property="og:url" content="http://rootimag.github.io/2026/07/19/%E3%80%90C-%E5%AD%A6%E4%B9%A0%E3%80%91CMake-%E9%A1%B9%E7%9B%AE%E6%9E%84%E5%BB%BA/index.html">
+<meta property="og:title" content="【C++ 学习】正则表达式">
+<meta property="og:url" content="http://rootimag.github.io/2026/07/20/%E3%80%90C-%E5%AD%A6%E4%B9%A0%E3%80%91%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/index.html">
 <meta property="og:site_name" content="rootimag&#39;s blog">
-<meta property="og:description" content="学习 CMAKE：从入门到构建 C++ 项目1. CMake 介绍在学习 C++ 的过程中，很多人起初只关注语法、算法和数据结构，但是在尝试做一个项目的时候，如何管理越来越多的源文件、头文件、第三方库以及不同平台的编译配置，成了一个棘手的问题。 为了解决这个问题，CMake 被设计，用于管理 C++ 项目的构建过程。 CMake 本身不是编译器，而是一个跨平台的构建系统，根据 CMakeLists">
+<meta property="og:description" content="正则表达式1. 正则表达式简介正则表达式（Regular Expression）是一种用于匹配、查找和替换的工具，以字母、数字和符号组成的微型语言，定义一段“文本模式”。 2. 正则表达式语法正则表达式由普通字符（如 a, b, c）和元字符（带特殊意义的字符）组成。 2.1 字符类（Character Class） 用于匹配特定范围或类型的单个字符。    语法 含义 示例    . 匹配除换行">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://rootimag.github.io/img/default.png">
-<meta property="article:published_time" content="2026-07-19T09:51:13.000Z">
-<meta property="article:modified_time" content="2026-07-19T11:36:59.907Z">
+<meta property="article:published_time" content="2026-07-20T08:51:07.000Z">
+<meta property="article:modified_time" content="2026-07-20T10:46:21.537Z">
 <meta property="article:author" content="rootimag">
 <meta property="article:tag" content="C++">
-<meta property="article:tag" content="CMake">
-<meta property="article:tag" content="编程">
+<meta property="article:tag" content="多线程， 编程">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="http://rootimag.github.io/img/default.png">
   
   
   
-  <title>【C++ 学习】CMake 项目构建 - rootimag&#39;s blog</title>
+  <title>【C++ 学习】正则表达式 - rootimag&#39;s blog</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -307,7 +306,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="【C++ 学习】CMake 项目构建"></span>
+            <span id="subtitle" data-typed-text="【C++ 学习】正则表达式"></span>
           
         </div>
 
@@ -318,8 +317,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2026-07-19 17:51" pubdate>
-          2026年7月19日 下午
+        <time datetime="2026-07-20 16:51" pubdate>
+          2026年7月20日 下午
         </time>
       </span>
     
@@ -330,7 +329,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          4.5k 字
+          1.3k 字
         
       </span>
     
@@ -341,7 +340,7 @@
         
         
         
-          38 分钟
+          11 分钟
         
       </span>
     
@@ -380,196 +379,177 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">【C++ 学习】CMake 项目构建</h1>
+            <h1 id="seo-header">【C++ 学习】正则表达式</h1>
             
             
               <div class="markdown-body">
                 
-                <h1 id="学习-CMAKE：从入门到构建-C-项目"><a href="#学习-CMAKE：从入门到构建-C-项目" class="headerlink" title="学习 CMAKE：从入门到构建 C++ 项目"></a>学习 CMAKE：从入门到构建 C++ 项目</h1><h2 id="1-CMake-介绍"><a href="#1-CMake-介绍" class="headerlink" title="1. CMake 介绍"></a>1. CMake 介绍</h2><p>在学习 C++ 的过程中，很多人起初只关注语法、算法和数据结构，但是在尝试做一个项目的时候，如何管理越来越多的<strong>源文件</strong>、<strong>头文件</strong>、<strong>第三方库</strong>以及<strong>不同平台的编译配置</strong>，成了一个棘手的问题。</p>
-<p>为了解决这个问题，CMake 被设计，用于管理 C++ 项目的构建过程。</p>
-<p>CMake 本身不是编译器，而是一个跨平台的构建系统，根据 <code>CMakeLists.txt</code> 文件中的指令，生成不同平台的编译命令，并执行编译操作，例如：</p>
+                <h1 id="正则表达式"><a href="#正则表达式" class="headerlink" title="正则表达式"></a>正则表达式</h1><h2 id="1-正则表达式简介"><a href="#1-正则表达式简介" class="headerlink" title="1. 正则表达式简介"></a>1. 正则表达式简介</h2><p>正则表达式（Regular Expression）是一种用于<strong>匹配、查找和替换</strong>的工具，以字母、数字和符号组成的微型语言，定义一段“文本模式”。</p>
+<h2 id="2-正则表达式语法"><a href="#2-正则表达式语法" class="headerlink" title="2. 正则表达式语法"></a>2. 正则表达式语法</h2><p>正则表达式由<strong>普通字符</strong>（如 <code>a</code>, <code>b</code>, <code>c</code>）和<strong>元字符</strong>（带特殊意义的字符）组成。</p>
+<p>2.1 字符类（Character Class）</p>
+<p>用于匹配特定范围或类型的单个字符。</p>
+<table>
+<thead>
+<tr>
+<th>语法</th>
+<th>含义</th>
+<th>示例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>.</code></td>
+<td>匹配除换行符以外的任何单个字符</td>
+<td><code>a.c</code> -&gt; <code>abc</code></td>
+</tr>
+<tr>
+<td><code>\d</code></td>
+<td>匹配一个数字</td>
+<td><code>a\dc</code> -&gt; <code>a1c</code>，等价于 <code>[0-9]</code></td>
+</tr>
+<tr>
+<td><code>\D</code></td>
+<td>匹配一个非数字</td>
+<td><code>a\Dc</code> -&gt; <code>abc</code>，等价于 <code>[^0-9]</code></td>
+</tr>
+<tr>
+<td><code>\w</code></td>
+<td>匹配字母、数字、下划线</td>
+<td><code>a\wc</code> -&gt; <code>a1c</code>，等价于 <code>[a-zA-Z0-9_]</code></td>
+</tr>
+<tr>
+<td><code>\W</code></td>
+<td>匹配非字母、数字、下划线</td>
+<td><code>a\Wc</code> -&gt; <code>a\nc</code>，等价于 <code>[^a-zA-Z0-9_]</code></td>
+</tr>
+<tr>
+<td><code>\s</code></td>
+<td>匹配任何空白字符</td>
+<td><code>a\sbc</code> -&gt; <code>a bc</code>，等价于 <code>[\t\n\r\f\v]</code></td>
+</tr>
+<tr>
+<td><code>\S</code></td>
+<td>匹配任何非空白字符</td>
+<td><code>a\Sbc</code> -&gt; <code>abc</code>，等价于 <code>[^\t\n\r\f\v]</code></td>
+</tr>
+<tr>
+<td><code>[...]</code></td>
+<td>匹配方括号内任意一个字符</td>
+<td><code>a[aeiou]c</code> -&gt; <code>aec</code>、<code>aic</code></td>
+</tr>
+<tr>
+<td><code>[^...]</code></td>
+<td>匹配不在方括号内任意一个字符</td>
+<td><code>a[^aeiou]c</code> -&gt; <code>abc</code>、<code>adc</code></td>
+</tr>
+</tbody></table>
+<p>2.2 数量词（Quantifier）</p>
+<p>用于指定字符的数量。</p>
+<table>
+<thead>
+<tr>
+<th>语法</th>
+<th>含义</th>
+<th>示例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>*</code></td>
+<td>匹配前面的字符0次或多次</td>
+<td><code>a*</code> -&gt; <code>&quot;&quot;</code>、<code>a</code>、<code>&quot;aa&quot;</code>、<code>&quot;aaa&quot;</code></td>
+</tr>
+<tr>
+<td><code>+</code></td>
+<td>匹配前面的字符1次或多次</td>
+<td><code>a+</code> -&gt; <code>a</code>、<code>&quot;aa&quot;</code>、<code>&quot;aaa&quot;</code></td>
+</tr>
+<tr>
+<td><code>?</code></td>
+<td>匹配前面的字符0次或1次</td>
+<td><code>a?</code> -&gt; <code>&quot;&quot;</code>、<code>&quot;a&quot;</code></td>
+</tr>
+<tr>
+<td><code>|</code></td>
+<td>匹配左右任意一个表达式</td>
+<td><code>a|b</code> -&gt; <code>&quot;a&quot;</code>、<code>&quot;b&quot;</code></td>
+</tr>
+<tr>
+<td><code>{n}</code></td>
+<td>精准匹配前面的字符n次</td>
+<td><code>a{2}</code> -&gt; <code>&quot;aa&quot;</code></td>
+</tr>
+<tr>
+<td><code>{n,}</code></td>
+<td>匹配前面的字符至少n次</td>
+<td><code>a{2,}</code> -&gt; <code>&quot;aa&quot;</code></td>
+</tr>
+<tr>
+<td><code>{n,m}</code></td>
+<td>匹配前面的字符至少n次，最多m次</td>
+<td><code>a{2,3}</code> -&gt; <code>&quot;aaa&quot;</code></td>
+</tr>
+</tbody></table>
+<p>2.3 边界限定（Anchor）</p>
+<p>用于限制匹配发生的位置，不消耗字符。</p>
+<table>
+<thead>
+<tr>
+<th>语法</th>
+<th>含义</th>
+<th>示例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>^</code></td>
+<td>匹配字符串的开始</td>
+<td><code>^abc</code> -&gt; <code>&quot;abc&quot;</code></td>
+</tr>
+<tr>
+<td><code>$</code></td>
+<td>匹配字符串的结束</td>
+<td><code>abc$</code> -&gt; <code>&quot;abc&quot;</code></td>
+</tr>
+<tr>
+<td><code>\b</code></td>
+<td>匹配单词边界（单词与非单词之间）</td>
+<td><code>\babc\b</code> -&gt; <code>&quot;abc&quot;</code></td>
+</tr>
+<tr>
+<td><code>\B</code></td>
+<td>匹配非单词边界（单词与非单词之间）</td>
+<td><code>\Babc\B</code> -&gt; <code>&quot;aaabccc&quot;</code></td>
+</tr>
+</tbody></table>
+<p>2.4 贪婪与懒惰匹配（Greedy and Lazy Matching）</p>
+<p>用于控制匹配的优先级，正则表达式的数量词（<code>*</code>、<code>+</code>、<code>{}</code>）默认为贪婪匹配，即尽可能多的匹配，懒惰匹配则是尽可能少的匹配。</p>
 <ul>
-<li><code>Linux</code> &#x2F; <code>macOS</code> ：下的 <code>Makefile</code> 和 <code>Ninja</code></li>
-<li><code>Windows</code>：<code>Visual Studio</code> 工程</li>
+<li>贪婪匹配：默认值</li>
+<li>懒惰匹配：在数量词加上 <code>?</code></li>
 </ul>
-<p>CMake 核心概念：</p>
-<ul>
-<li><strong>工作流</strong>：编写 <code>CMakeLists.txt</code> 文件 -&gt; CMake 解析生成底层构建文件 -&gt; 底层工具调用编译器完成编译。</li>
-<li><strong>核心思想(Target-Based)</strong>：将可执行文件或库视为目标(Target)，所有头文件、编译选项、链接库都严格绑定到 Target。</li>
-</ul>
-<h2 id="2-CMakeLists-txt-编写"><a href="#2-CMakeLists-txt-编写" class="headerlink" title="2. CMakeLists.txt 编写"></a>2. CMakeLists.txt 编写</h2><p><code>CMakeLists.txt</code> 文件是 CMake 项目的入口，用于定义项目的构建规则。<br>以 <code>CMakeLists.txt</code> 为中心，按照项目的生命周期，CMake 指令可分为如下阶段：</p>
-<h3 id="2-1-项目初始化"><a href="#2-1-项目初始化" class="headerlink" title="2.1 项目初始化"></a>2.1 项目初始化</h3><p>每个 <code>CMakeLists.txt</code> 开头必须包含环境和项目声明：</p>
-<ol>
-<li><code>cmake_minimum_required</code>（设定最低版本）</li>
-</ol>
-<ul>
-<li>语法：<code>cmake_minimum_required(VERSION &lt;min&gt;[...&lt;policy_max&gt;])</code></li>
-<li>示例：<code>cmake_minimum_required(VERSION 3.15)</code></li>
-<li>细节：现代 CMake 项目建议要求 <code>3.12</code> 以上版本，以完整支持 Target 属性</li>
-</ul>
-<ol start="2">
-<li><code>project</code>（定义项目属性）</li>
-</ol>
-<ul>
-<li>语法：<code>project(&lt;PROJECT_NAME&gt; [VERSION &lt;major&gt;[.&lt;minor&gt;...]] [LANGUAGES &lt;language-name&gt;...])</code></li>
-<li>示例：<code>project(MyProject VERSION 1.0.0 LANGUAGES CXX C)</code></li>
-<li>细节：<code>project</code> 命令会定义 <code>PROJECT_NAME</code> 和 <code>PROJECT_VERSION</code> 变量，便于后续使用</li>
-</ul>
-<ol start="3">
-<li><code>set</code>（定义变量）</li>
-</ol>
-<ul>
-<li>语法：配置内置变量</li>
-<li>实例：</li>
-</ul>
-<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs cmake"><span class="hljs-keyword">set</span>(CMAKE_CXX_STANDARD <span class="hljs-number">17</span>)                     <span class="hljs-comment"># 设置 C++ 标准版本为 C++17</span><br><span class="hljs-keyword">set</span>(CMAKE_CXX_STANDARD_REQUIRED <span class="hljs-keyword">ON</span>)            <span class="hljs-comment"># 设置 C++ 标准为必须</span><br><span class="hljs-keyword">set</span>(CMAKE_CXX_EXTENSIONS <span class="hljs-keyword">OFF</span>)                  <span class="hljs-comment"># 关闭编译器特有拓展</span><br><span class="hljs-keyword">set</span>(CMAKE_EXPORT_COMPILE_COMMANDS <span class="hljs-keyword">ON</span>)          <span class="hljs-comment"># 生成编译命令文件</span><br></code></pre></td></tr></table></figure>
-
-<h3 id="2-2-目标构建阶段"><a href="#2-2-目标构建阶段" class="headerlink" title="2.2 目标构建阶段"></a>2.2 目标构建阶段</h3><p>决定构建哪些文件：可执行程序、静态库和动态库。</p>
-<ol>
-<li><code>add_executable</code>（定义可执行文件目标）</li>
-</ol>
-<ul>
-<li>语法：<code>add_executable(&lt;name&gt; [source1] [source2] [...]])</code></li>
-<li>实例：<code>add_executable(hello src/main.cpp src/core.cpp)</code></li>
-<li>细节：<code>&lt;name&gt;</code> 是此 Target 全局唯一标识符，后续配置均基于此标识符</li>
-</ul>
-<ol start="2">
-<li><code>add_library</code>（定义库文件目标）</li>
-</ol>
-<ul>
-<li>语法：<code>add_library(&lt;name&gt; [STATIC | SHARED | MODULE | INTERFACE] [source1] [source2] [...])</code></li>
-<li>参数：<ul>
-<li><code>STATIC</code>: 静态库（Linux 下为 <code>.a</code>），代码在链接时直接打包进可执行文件中</li>
-<li><code>SHARED</code>: 动态库（Linux 下为 <code>.so</code>），运行时动态加载，节省磁盘和内存空间</li>
-<li><code>INTERFACE</code>: 纯头文件库（Header-only），不编译源文件，仅传递头文件路径</li>
-</ul>
-</li>
-<li>示例：<code>add_library(mylib STATIC src/mylib.cpp)</code></li>
-</ul>
-<p>Warning: 严禁使用 <code>file(GLOB)</code> 指令，导致 CMake 无法感知文件变化。</p>
-<h3 id="2-3-编译期配置阶段"><a href="#2-3-编译期配置阶段" class="headerlink" title="2.3 编译期配置阶段"></a>2.3 编译期配置阶段</h3><p>为特定的 Target 指定头文件目录、宏定义和编译器警告选项。</p>
-<ol>
-<li><p>可见性标识符(Visiblity Specifier)<br>所有 Target 配置指令必须携带三个可见标识符之一，用于控制属性的传递</p>
-<ul>
-<li><code>PRIVATE</code>：只在当前 Target 内部可见</li>
-<li><code>PUBLIC</code>：当前 Target 及其子目标可见</li>
-<li><code>INTERFACE</code>：当前 Target 不适用，但子目标可见（常用于纯头文件库）</li>
-</ul>
-</li>
-<li><p><code>target_include_directories</code>（定义头文件目录）</p>
-</li>
-</ol>
-<ul>
-<li>语法：<code>target_include_directories(&lt;target&gt; [PRIVATE | PUBLIC | INTERFACE] [prefix1] [prefix2] [...])</code></li>
-<li>示例：<code>target_include_directories(mylib PUBLIC ${PROJECT_SOURCE_DIR}/include)</code></li>
-</ul>
-<ol start="3">
-<li><code>target_compile_definitions</code>（定义宏定义）</li>
-</ol>
-<ul>
-<li>语法：<code>target_compile_definitions(&lt;target&gt; [PRIVATE | PUBLIC | INTERFACE] [macro1] [macro2] [...])</code></li>
-<li>示例：<code>target_compile_definitions(myApp PRIVATE DEBUG=1 USE_NEW_API)</code></li>
-<li>细节：等同于在头文件中 <code>#define DEBUG 1</code> 或者 <code>#define USE_NEW_API</code></li>
-</ul>
-<ol start="4">
-<li><code>target_compile_options</code>（定义编译选项）</li>
-</ol>
-<ul>
-<li>语法：<code>target_compile_options(&lt;target&gt; [PRIVATE | PUBLIC | INTERFACE] [option1] [option2] [...])</code></li>
-<li>示例：<code>target_compile_options(myApp PRIVATE -Wall -Wextra -Werror)</code></li>
-</ul>
-<h3 id="2-4-链接期配置阶段"><a href="#2-4-链接期配置阶段" class="headerlink" title="2.4 链接期配置阶段"></a>2.4 链接期配置阶段</h3><p>处理项目对外部库或其他 Target 的依赖关系。</p>
-<ol>
-<li><code>find_package</code>（定义依赖项）</li>
-</ol>
-<ul>
-<li>语法：<code>find_package(&lt;package&gt; [version] [EXACT] [QUIET] [MODULE] [REQUIRED] [COMPONENTS [components...]])</code></li>
-<li>参数：<ul>
-<li><code>EXACT</code>: 指定版本号必须完全匹配</li>
-<li><code>REQUIRED</code>: 如果找不到依赖项，CMake 会报错</li>
-<li><code>COMPONENTS</code>：指定要使用的依赖项组件</li>
-</ul>
-</li>
-<li>示例：<code>find_package(Boost 1.74 REQUIRED COMPONENTS asio)</code></li>
-<li>细节: 成功后，CMake 会自动提供形如 <code>&lt;PackageName&gt;::&lt;Component&gt;</code> 的导入目标 (Imported Target)。</li>
-</ul>
-<ol start="2">
-<li><code>target_link_libraries</code>（定义依赖项）</li>
-</ol>
-<ul>
-<li>语法：<code>target_link_libraries(&lt;target&gt; [PRIVATE | PUBLIC | INTERFACE] [lib1] [lib2] [...])</code></li>
-<li>参数：<code>lib</code> 为依赖项的导入目标，可以为 <code>find_package</code> 找到的依赖项、本项目的其他 Target或系统库名称</li>
-<li>示例：</li>
-</ul>
-<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs cmake"><span class="hljs-comment"># 链接系统线程库和本项目内构建的静态库</span><br><span class="hljs-keyword">find_package</span>(Threads REQUIRED)<br><span class="hljs-keyword">target_link_libraries</span>(myApp PRIVATE Threads::Threads mathLib)<br></code></pre></td></tr></table></figure>
-
-<ul>
-<li>细节：链接一个 Target 还会继承其 <code>PUBLIC</code> 和 <code>INTERFACE</code> 属性。</li>
-</ul>
-<h2 id="3-变量与控制流"><a href="#3-变量与控制流" class="headerlink" title="3. 变量与控制流"></a>3. 变量与控制流</h2><p>CMake 本质是一个脚本语言，可以加上变量和控制语句。</p>
-<ol>
-<li>变量定义（<code>set</code>）</li>
-</ol>
-<ul>
-<li>语法：<code>set(&lt;variable&gt; &lt;value&gt; ...)</code></li>
-<li>读取：使用 <code>${variable}</code> 读取变量值</li>
-<li>示例：</li>
-</ul>
-<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs cmake"><span class="hljs-keyword">set</span>(SRC_FILES src/main.cpp src/network.cpp)<br><span class="hljs-keyword">add_executable</span>(myApp <span class="hljs-variable">$&#123;SRC_FILES&#125;</span>)<br></code></pre></td></tr></table></figure>
-
-<ol start="2">
-<li>控制流（<code>if</code> &#x2F; <code>else</code>）</li>
-</ol>
-<ul>
-<li>示例：</li>
-</ul>
-<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs cmake"><span class="hljs-keyword">if</span>(CMAKE_SYSTEM_NAME <span class="hljs-keyword">MATCHES</span> <span class="hljs-string">&quot;Linux&quot;</span>)<br>    <span class="hljs-keyword">message</span>(STATUS <span class="hljs-string">&quot;Current OS is Linux&quot;</span>)<br>    <span class="hljs-keyword">target_link_libraries</span>(myApp PRIVATE rt)<br><span class="hljs-keyword">elseif</span>(WIN32)<br>    <span class="hljs-keyword">message</span>(WARNING <span class="hljs-string">&quot;Windows is not fully supported&quot;</span>)<br><span class="hljs-keyword">endif</span>()<br></code></pre></td></tr></table></figure>
-
-<ol start="3">
-<li>终端输出（<code>message</code>）</li>
-</ol>
-<ul>
-<li>语法：<code>message([STATUS | WARNING | FATAL_ERROR] &quot;&lt;message&gt;&quot;)</code></li>
-<li>模式<ul>
-<li><code>STATUS</code>: 常规信息（带 – 前缀）</li>
-<li><code>WARNING</code>: 警告信息（红色，不中断）</li>
-<li><code>FATAL_ERROR</code>: 严重错误（终止配置）</li>
-</ul>
-</li>
-</ul>
-<h2 id="4-CMake-Cli-命令"><a href="#4-CMake-Cli-命令" class="headerlink" title="4. CMake Cli 命令"></a>4. CMake Cli 命令</h2><p>在编写完 <code>CMakeLists.txt</code> 后，我们需要调用 CMake 来构建项目。</p>
-<p>现代 CMake 版本提倡<strong>树外构建(Out-of-Source Build)</strong>，即在项目根目录下创建一个 <code>build</code> 目录，将构建产物放在这个目录下。</p>
-<h3 id="4-1-配置阶段-Configure-Phase"><a href="#4-1-配置阶段-Configure-Phase" class="headerlink" title="4.1 配置阶段(Configure Phase)"></a>4.1 配置阶段(Configure Phase)</h3><p>解析 <code>CMakeLists.txt</code> 文件，生成底层构建文件（<code>CMakeCache.txt</code> 和 <code>CMakeFiles</code> 目录）。</p>
-<ul>
-<li>语法：<code>cmake -S &lt;source_dir&gt; -B &lt;build_dir&gt; [ards...]</code></li>
-<li>参数：<ul>
-<li><code>-S</code>: 指定源码目录</li>
-<li><code>-B</code>: 指定构建目录</li>
-<li><code>-G &quot;Generator&quot;</code>: 指定构建工具，如 <code>-G Ninja</code>（推荐，快速并行的构建工具）或 <code>-G &quot;Unix Makefiles&quot;</code>（Linux 默认）</li>
-<li><code>-DCMAKE_BUILD_TYPE=&lt;type&gt;</code>: 指定构建类型<ul>
-<li><code>Debug</code>：包含调试符号，无优化（<code>-O0 -g</code>），用于 Debug 模式</li>
-<li><code>Release</code>：包含优化，无调试符号（<code>-O2 -DNDEBUG</code>），用于 Release 模式</li>
-<li><code>RelWithDebInfo</code>：包含优化，包含调试符号（<code>-O2 -g</code>）</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h3 id="4-2-构建阶段-Build-Phase"><a href="#4-2-构建阶段-Build-Phase" class="headerlink" title="4.2 构建阶段(Build Phase)"></a>4.2 构建阶段(Build Phase)</h3><p>使用构建工具调用编译器进行编译。</p>
-<ul>
-<li>语法：<code>cmake --build &lt;build_dir&gt; [ards...]</code></li>
-<li>参数：<ul>
-<li><code>--build build</code>：指定构建目录为 <code>build</code></li>
-<li><code>--parallel &lt;N&gt;</code>（或 <code>-j &lt;N&gt;</code>）：指定并行构建的线程数</li>
-<li><code>--target &lt;target&gt;</code>：指定构建的目标</li>
-<li><code>--clean-first</code>：先清理构建目录</li>
-</ul>
-</li>
-</ul>
-<h3 id="4-3-清理阶段-Clean-Phase"><a href="#4-3-清理阶段-Clean-Phase" class="headerlink" title="4.3 清理阶段(Clean Phase)"></a>4.3 清理阶段(Clean Phase)</h3><ul>
-<li>语法：<code>cmake --build &lt;build_dir&gt; --target clean</code></li>
-<li>作用：删除构建目录下的 <code>.o</code>、<code>.a</code>、<code>.so</code> 及可执行文件，保留 CMake 缓存</li>
-</ul>
+<p>2.5 分组与逻辑 (Grouping &amp; Logic)</p>
+<table>
+<thead>
+<tr>
+<th>语法</th>
+<th>含义</th>
+<th>示例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>(expression)</code></td>
+<td>匹配括号内的表达式</td>
+<td><code>(a|b)</code></td>
+</tr>
+<tr>
+<td><code>(?:expression)</code></td>
+<td>匹配括号内的表达式，但不消耗字符</td>
+<td><code>(?:a|b)</code></td>
+</tr>
+<tr>
+<td><code>\num</code></td>
+<td>匹配第 <code>num</code> 个分组的内容</td>
+<td><code>(a|b)\1</code></td>
+</tr>
+</tbody></table>
 
                 
               </div>
@@ -605,9 +585,7 @@
       
         <a href="/tags/C/" class="print-no-link">#C++</a>
       
-        <a href="/tags/CMake/" class="print-no-link">#CMake</a>
-      
-        <a href="/tags/%E7%BC%96%E7%A8%8B/" class="print-no-link">#编程</a>
+        <a href="/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B%EF%BC%8C-%E7%BC%96%E7%A8%8B/" class="print-no-link">#多线程， 编程</a>
       
     </div>
   
@@ -619,8 +597,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>【C++ 学习】CMake 项目构建</div>
-      <div>http://rootimag.github.io/2026/07/19/【C-学习】CMake-项目构建/</div>
+      <div>【C++ 学习】正则表达式</div>
+      <div>http://rootimag.github.io/2026/07/20/【C-学习】正则表达式/</div>
     </div>
     <div class="license-meta">
       
@@ -632,7 +610,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2026年7月19日</div>
+          <div>2026年7月20日</div>
         </div>
       
       
@@ -664,18 +642,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2026/07/20/%E3%80%90C-%E5%AD%A6%E4%B9%A0%E3%80%91%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" title="【C++ 学习】正则表达式">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">【C++ 学习】正则表达式</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2026/07/12/%E3%80%90C-%E5%AD%A6%E4%B9%A0%E3%80%91%E5%A4%9A%E7%BA%BF%E7%A8%8B/" title="【C++ 学习】多线程">
-                        <span class="hidden-mobile">【C++ 学习】多线程</span>
+                      <a href="/2026/07/19/%E3%80%90C-%E5%AD%A6%E4%B9%A0%E3%80%91CMake-%E9%A1%B9%E7%9B%AE%E6%9E%84%E5%BB%BA/" title="【C++ 学习】CMake 项目构建">
+                        <span class="hidden-mobile">【C++ 学习】CMake 项目构建</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
